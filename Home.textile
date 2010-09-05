@@ -1,3 +1,1 @@
-h1. Developer Documentation
-
 * *[[Sessions]]* - how sessions are implemented in Compojure
