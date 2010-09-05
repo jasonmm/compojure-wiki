@@ -27,7 +27,17 @@ h3. bindings
 
 A map or vector of bindings that will be applied to the "Ring":http://github.com/mmcgrana/ring request map.
 
-If the binding is a map, it acts like a normal destructuring binding to the whole request map. For example, if you wanted to bind @cookies@ to the request cookies, you'd use the binding: @{cookies :cookies}@. You can read more about destructuring bindings at the "Clojure website":http://clojure.org/special_forms#Special%20Forms--%28let%20%5Bbindings%2A%20%5D%20exprs%2A%29.
+If the binding is a map, it acts like a normal destructuring binding to the whole request map. For example:
+
+<pre>
+(GET "/view-cookies" {cookies :cookies}
+  (pr-str cookies))
+
+(GET "/checkout" {{cart :shopping-cart} :session}
+  (show-checkout-for cart))
+</pre>
+
+You can read more about destructuring bindings in the documentation for the Clojure "let form":http://clojure.org/special_forms#Special%20Forms--%28let%20%5Bbindings%2A%20%5D%20exprs%2A%29.
 
 If the binding is a vector, the parameters are bound to each symbol in the vector. If a @& more@ form is used, a map of parameters that have not been bound to a symbol are bound to @more@.
 
