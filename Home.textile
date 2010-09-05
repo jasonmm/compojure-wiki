@@ -1,4 +1,4 @@
-This Wiki is for developers who wish to contribute to Compojure.
+This wiki is for developers who wish to contribute to Compojure.
 
 h2. Developer Documentation
 
