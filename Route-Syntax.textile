@@ -8,7 +8,14 @@ A macro that matches a specific HTTP method. The following methods are implement
 
 h3. route-path
 
-A string that is used to match the URI using a routing syntax supported by "Clout":http://github.com/weavejester/clout.
+A string that is used to match the URI using a routing syntax supported by "Clout":http://github.com/weavejester/clout. This may also be a expression that creates a string, or a compiled Clout route. Any parameters defined in the route-path are added to the request.
+
+For example:
+
+<pre>
+(GET "/books/:isbn" [isbn]
+  (find-book-by-isbn isbn))
+</pre>
 
 h3. bindings
 
