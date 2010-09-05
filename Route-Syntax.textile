@@ -13,14 +13,14 @@ A string that is used to match the URI using a routing syntax supported by "Clou
 For example:
 
 <pre>
-(GET "/books/:isbn" [isbn]
-  (find-book-by-isbn isbn))
+(GET "/product/:id" [id]
+   (find-product id))
 
-(GET (str "/books" "/:isbn") [isbn]
-  (find-book-by-isbn isbn))
+(GET (str "/product" "/:id") [id]
+  (find-product id))
 
-(GET (clout/route-compile "/books/:isbn" {:isbn #"\d+"}) [isbn]
-  (find-book-by-isbn isbn))
+(GET (clout/route-compile "/product/:id" {:id #"\d+"}) [id]
+  (find-product id))
 </pre>
 
 h3. bindings
@@ -34,12 +34,25 @@ If the binding is a map, it acts like a normal destructuring binding to the whol
   (pr-str cookies))
 
 (GET "/checkout" {{cart :shopping-cart} :session}
-  (show-checkout-for cart))
+  (render-checkout cart))
 </pre>
 
 You can read more about destructuring bindings in the documentation for the Clojure "let form":http://clojure.org/special_forms#Special%20Forms--%28let%20%5Bbindings%2A%20%5D%20exprs%2A%29.
 
-If the binding is a vector, the parameters are bound to each symbol in the vector. If a @& more@ form is used, a map of parameters that have not been bound to a symbol are bound to @more@.
+If the binding is a vector, the request parameters are bound to the symbols in the vector. If an @& more@ form is used, the map of parameters that have not been bound to a symbol are bound to @more@.
+
+For example:
+
+<pre>
+(GET "/products/search" [query]
+  (search-products query))
+
+(POST "/users" [username email]
+  (create-user username email))
+
+(PUT "/user/:id" [id & updated-attrs]
+  (update-user id updated-attrs))
+</pre>
 
 h3. body
 
