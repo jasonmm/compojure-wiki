@@ -1,1 +1,3 @@
-* [[Using WAR files with Compojure]]
+h1. Developer Documentation
+
+* *[[Sessions]]* - how sessions are implemented in Compojure
