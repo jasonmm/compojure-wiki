@@ -4,4 +4,4 @@ h2. Developer Documentation
 
 * *[[Sessions]]* - how sessions are implemented in Compojure
 
-* *[[Tutorial]]* - A quick walk-through building a simple Compojure web application
+* *[[tutorial]]* - A quick walk-through building a simple Compojure web application
