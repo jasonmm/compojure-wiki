@@ -15,6 +15,12 @@ For example:
 <pre>
 (GET "/books/:isbn" [isbn]
   (find-book-by-isbn isbn))
+
+(GET (str "/books" "/:isbn") [isbn]
+  (find-book-by-isbn isbn))
+
+(GET (clout/route-compile "/books/:isbn" {:isbn #"\d+"}) [isbn]
+  (find-book-by-isbn isbn))
 </pre>
 
 h3. bindings
