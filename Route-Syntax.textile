@@ -57,3 +57,5 @@ For example:
 h3. body
 
 The body of the route. The return value from this will be used to render the response. See: [[Response Rendering]]
+
+If the response is nil, then the next route is tried until a non-nil response is returned.
