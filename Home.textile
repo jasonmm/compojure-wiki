@@ -1,1 +1,2 @@
-[[Route Syntax]]
+[[Getting Started]]
+[[Routes In Detail]]
