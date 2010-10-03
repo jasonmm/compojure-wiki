@@ -14,8 +14,8 @@ This will create a basic project skeleton we can build upon. Update `project.clj
   :description "A Compojure 'Hello World' application"
   :dependencies [[org.clojure/clojure "1.2.0"]
                  [org.clojure/clojure-contrib "1.2.0"]
-                 [compojure "0.5.1"]
-                 [ring/ring-jetty-adapter "0.3.0"]])
+                 [compojure "0.5.2"]
+                 [ring/ring-jetty-adapter "0.3.1"]])
 ```
 
 Next, use Leiningen to download the project dependencies for you:
