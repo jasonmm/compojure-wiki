@@ -24,7 +24,7 @@ Next, use Leiningen to download the project dependencies for you:
 $ lein deps
 ```
 
-Now you’re ready to write the application. Put the following code into src/hello-www/core.clj:
+Now you’re ready to write the application. Put the following code into `src/hello_www/core.clj`:
 
 ```clojure
 (ns hello-www.core
