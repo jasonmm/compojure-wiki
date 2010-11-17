@@ -7,14 +7,14 @@ $ lein new hello-www
 $ cd hello-www
 ```
 
-This will create a basic project skeleton we can build upon. Update `project.clj` in the current directory to include Compojure 0.4.1 and the Ring Jetty adapter as dependencies:
+This will create a basic project skeleton we can build upon. Update `project.clj` in the current directory to include Compojure 0.5.3 and the Ring Jetty adapter as dependencies:
 
 ```clojure
 (defproject hello-www "1.0.0-SNAPSHOT"
   :description "A Compojure 'Hello World' application"
   :dependencies [[org.clojure/clojure "1.2.0"]
                  [org.clojure/clojure-contrib "1.2.0"]
-                 [compojure "0.5.2"]
+                 [compojure "0.5.3"]
                  [ring/ring-jetty-adapter "0.3.1"]])
 ```
 
