@@ -47,7 +47,7 @@ Then pass your routes to the Jetty adapter.
 ```clojure
 => (use 'ring.adapter.jetty)
 => (use 'hello-www.core)
-=> (run-jetty 'example {:port 8080})
+=> (run-jetty example {:port 8080})
 ```
 
 Visit [[http://localhost:8080]] to see the results. If all has gone well, you’ll see your "Hello World" page.
