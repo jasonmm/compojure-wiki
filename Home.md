@@ -4,3 +4,4 @@ It uses a concise DSL to generate [[Ring|http://github.com/mmcgrana/ring/wiki]] 
 
 * [[Getting Started]]
 * [[Routes In Detail]]
+* [[API Documentation|http://weavejester.github.com/compojure]]
