@@ -1,4 +1,4 @@
-Restarting the web server after every tiny change is slow and tiresome. To speed up development you can set up automatic application reloading/redeployment.
+Restarting the web server after every tiny change is slow and tiresome. To speed up development you can set up automatic application reloading.
 
 # Lein-Ring
 
@@ -58,7 +58,7 @@ Run it from the REPL:
 => (run-jetty wrapped-example {:port 8080})
 ```
 
-Now test your app and make some changes to the source. They should be automatically take effect when you save the source.
+Now test your app and make some changes to your code. They should automatically take effect when you save the source.
 
 [wrap-reload]: http://mmcgrana.github.com/ring/middleware.reload-api.html#ring.middleware.reload/wrap-reload
 [ring]: https://github.com/mmcgrana/ring
