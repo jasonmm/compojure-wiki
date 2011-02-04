@@ -1,8 +1,33 @@
 Restarting the web server after every tiny change is slow and tiresome. To speed up development you can set up automatic application reloading/redeployment.
 
+# Lein-Ring
+
+[Lein-Ring][lein-ring] is a Leiningen plugin that can be used to start a development web server that automatically reloads modified source files. Add it as a dependency to your `project.clj`:
+
+[lein-ring]: https://github.com/weavejester/lein-ring/
+
+```clojure
+:dev-dependencies [[lein-ring "0.3.0"]]
+```
+
+You also need to add a new `ring` key, which specifies your Ring handler function (that is, your routes definition). For example, here's an updated `project.clj` for the [[Getting started]] tutorial:
+
+```clojure
+(defproject hello-www "1.0.0-SNAPSHOT"
+  :description "A Compojure 'Hello World' application"
+  :dependencies [[org.clojure/clojure "1.2.0"]
+                 [org.clojure/clojure-contrib "1.2.0"]
+                 [compojure "0.5.3"]
+                 [ring/ring-jetty-adapter "0.3.1"]]
+  :dev-dependencies [[lein-ring "0.3.0"]]
+  :ring {:handler hello-www.core/example})
+```
+
+Now run the command `lein ring server` to start the web server.
+
 # Using Ring middleware
 
-One solution is to use [wrap-reload][wrap-reload] from the [ring-devel][ring] library. It reloads selected libraries before each request. Update your `project.clj` to include ring-devel as dependency:
+Another solution is to use [wrap-reload][wrap-reload] from the [ring-devel][ring] library. It reloads selected libraries before each request. Update your `project.clj` to include ring-devel as a dependency:
 
 ```clojure
 [ring/ring-devel "0.3.5"]
