@@ -42,3 +42,4 @@ Now test your app and make some changes to the source. They should be automatica
 
 * [StackOverflow: Compojure development without web server restarts](http://stackoverflow.com/questions/1665760/compojure-development-without-web-server-restarts)
 * [Chas Emerick: Sane web development with Compojure, Jetty, and Maven](http://cemerick.com/2010/01/08/sane-web-development-with-compojure-jetty-and-maven/)
+* [Compojure Google Group: Reload issues](http://groups.google.com/group/compojure/browse_thread/thread/5e057d04e39fd717) (with instructions for [lein-ring](https://github.com/weavejester/lein-ring))
