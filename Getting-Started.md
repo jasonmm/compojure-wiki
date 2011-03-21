@@ -16,7 +16,7 @@ Next, update the `project.clj` file in the project directory and add a dependenc
   :description "A Compojure 'Hello World' application"
   :dependencies [[org.clojure/clojure "1.2.0"]
                  [org.clojure/clojure-contrib "1.2.0"]
-                 [compojure "0.6.0-RC4"]])
+                 [compojure "0.6.2"]])
 ```
 
 Now you’re ready to write the application. Put the following code into `src/hello_www/core.clj`:
