@@ -4,5 +4,6 @@ It uses a concise DSL to generate [[Ring|http://github.com/mmcgrana/ring/wiki]] 
 
 * [[Getting Started]]
 * [[Routes In Detail]]
+* [[Destructuring Syntax]]
 * [[API Documentation|http://weavejester.github.com/compojure]]
 * [[Interactive Development With Ring|https://github.com/mmcgrana/ring/wiki/Interactive-Development]]
