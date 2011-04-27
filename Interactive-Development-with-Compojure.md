@@ -1,6 +1,6 @@
-# Using Vars
+# Interactive Development with Compojure
 
-Another method is to setup your routes in a way that it always references the `var` and not the value of the symbol. We can accomplish this by using the var-quote `#'` instead of the quote when passing our routes.
+One method for interactive development is to setup your routes in a way that it always references the `var` and not the value of the symbol. We can accomplish this by using the var-quote `#'` instead of the quote when passing our routes.
 
 ```clojure
 => (use 'ring.adapter.jetty)
