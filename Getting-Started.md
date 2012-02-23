@@ -14,9 +14,9 @@ Next, update the `project.clj` file in the project directory and add a dependenc
 ```clojure
 (defproject hello-www "1.0.0-SNAPSHOT"
   :description "A Compojure 'Hello World' application"
-  :dependencies [[org.clojure/clojure "1.2.0"]
-                 [org.clojure/clojure-contrib "1.2.0"]
-                 [compojure "0.6.4"]])
+  :dependencies [[org.clojure/clojure "1.2.1"]
+                 [org.clojure/clojure-contrib "1.2.1"]
+                 [compojure "1.0.1"]])
 ```
 
 Now you’re ready to write the application. Put the following code into `src/hello_www/core.clj`:
@@ -83,10 +83,10 @@ Now that the handler function is defined, we need a way of running it. The easie
 ```clojure
 (defproject hello-www "1.0.0-SNAPSHOT"
   :description "A Compojure 'Hello World' application"
-  :dependencies [[org.clojure/clojure "1.2.0"]
-                 [org.clojure/clojure-contrib "1.2.0"]
-                 [compojure "0.6.4"]]
-  :dev-dependencies [[lein-ring "0.4.5"]]
+  :dependencies [[org.clojure/clojure "1.2.1"]
+                 [org.clojure/clojure-contrib "1.2.1"]
+                 [compojure "1.0.1"]]
+  :dev-dependencies [[lein-ring "0.5.4"]]
   :ring {:handler hello-www.core/app})
 ```
 
