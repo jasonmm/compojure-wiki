@@ -90,10 +90,9 @@ Now that the handler function is defined, we need a way of running it. The easie
 
 The lein-ring plugin is configured with the `:ring` key. Here we've told it where the main Ring handler is.
 
-You can now download the dependencies, and start a development server using Leiningen:
+You can now start a development server using Leiningen:
 
 ```bash
-$ lein deps
 $ lein ring server
 ```
 
