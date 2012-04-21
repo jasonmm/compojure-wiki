@@ -84,7 +84,7 @@ Now that the handler function is defined, we need a way of running it. The easie
   :description "A Compojure 'Hello World' application"
   :dependencies [[org.clojure/clojure "1.2.1"]
                  [compojure "1.0.1"]]
-  :plugins [[lein-ring "0.6.3"]]
+  :dev-dependencies [[lein-ring "0.6.3"]]
   :ring {:handler hello-www.core/app})
 ```
 
