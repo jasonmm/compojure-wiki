@@ -1,4 +1,4 @@
-The simplest way to get started with Compojure is to use [[Leiningen|http://github.com/technomancy/leiningen]], a popular Clojure build tool. If you haven't already, download and install Leiningen.
+The simplest way to get started with Compojure is to use [[Leiningen|http://github.com/technomancy/leiningen]], a popular Clojure build tool. If you haven't already, download and install Leiningen. If you are using Homebrew on OSX `brew update` before installing Leinigen to make sure you get the latest version.
 
 Once Leiningen is installed, use it to create a new Clojure project:
 
