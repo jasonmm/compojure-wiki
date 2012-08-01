@@ -1,0 +1,1 @@
+Refer to sessions usage in [ring sessions](https://github.com/mmcgrana/ring/wiki/Sessions), or you can integrate [sandbar](https://github.com/brentonashworth/sandbar) which include sessions wrap helpers.
