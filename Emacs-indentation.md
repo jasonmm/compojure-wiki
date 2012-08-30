@@ -1,6 +1,8 @@
 You can add the following code to your `init.el` file to get better indentation for Compojure macros:
 
 ```lisp
+(require 'clojure-mode)
+
 (define-clojure-indent
   (defroutes 'defun)
   (GET 2)
