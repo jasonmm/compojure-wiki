@@ -1,4 +1,11 @@
-Compojure supports two sorts of destructuring. The Clojure kind, as one might use in the `let` [special form](http://clojure.org/special_forms), and a Compojure-specific kind designed for parsing parameters from a request map.
+Compojure supports two sorts of destructuring:
+
+ 1. The Clojure kind, as one might use in the `let` [special form](http://clojure.org/special_forms), and
+ 2. a Compojure-specific kind designed for parsing from the request map:
+      * query string (and form) parameters, and
+      * portions of the url path;
+
+## Regular Clojure Destructuring
 
 If you supply a map or symbol, Clojure's destructuring syntax will be used on the Ring request map. For example, here is how you'd bind a specific parameter to a variable using the Clojure syntax:
 
@@ -7,7 +14,9 @@ If you supply a map or symbol, Clojure's destructuring syntax will be used on th
   (str "Foo = " foo))
 ```
 
-But this is quite verbose, so Compojure has a more specialised form of destructuring. If you supply a vector, Compojure will use this custom destructuring syntax. The above example can be written more concisely as:
+## Compojure-specific Destructuring
+
+Since regular destructuring can be quite verbose, Compojure offers a more specialised form of destructuring. If you supply a vector, Compojure will use this custom destructuring syntax. The above example can be written more concisely as:
 
 ```clojure
 (GET "/:foo" [foo]
