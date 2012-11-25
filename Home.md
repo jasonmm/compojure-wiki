@@ -11,3 +11,4 @@ It uses a concise DSL to generate [[Ring|https://github.com/ring-clojure/ring/wi
 * [[Interactive Development With Ring|https://github.com/ring-clojure/ring/wiki/Interactive-Development]]
 * [[Emacs Indentation]]
 * [[Sessions|https://github.com/weavejester/compojure/wiki/Sessions]]
+* [[Common Problems|https://github.com/weavejester/compojure/wiki/Common-Problems]]
