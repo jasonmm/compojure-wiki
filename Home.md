@@ -9,6 +9,7 @@ It uses a concise DSL to generate [[Ring|https://github.com/ring-clojure/ring/wi
 * [[API Documentation|http://weavejester.github.com/compojure]]
 * [[Deployment Platforms]]
 * [[Example Project|https://github.com/weavejester/compojure-example]]
+* [[Example Project on CloudBees (contributed by the Austin Clojure Group)]]
 * [[Interactive Development With Ring|https://github.com/ring-clojure/ring/wiki/Interactive-Development]]
 * [[Emacs Indentation]]
 * [[Sessions|https://github.com/weavejester/compojure/wiki/Sessions]]
