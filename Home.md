@@ -7,7 +7,7 @@ It uses a concise DSL to generate [[Ring|https://github.com/ring-clojure/ring/wi
 * [[Destructuring Syntax]]
 * [[Nesting Routes]]
 * [[API Documentation|http://weavejester.github.com/compojure]]
-* [[Deployment]]
+* [[Deployment Platforms]]
 * [[Example Project|https://github.com/weavejester/compojure-example]]
 * [[Interactive Development With Ring|https://github.com/ring-clojure/ring/wiki/Interactive-Development]]
 * [[Emacs Indentation]]
