@@ -10,7 +10,7 @@ Compojure supports two sorts of destructuring:
 If you supply a map or symbol, Clojure's destructuring syntax will be used on the Ring request map. For example, here is how you'd bind a specific parameter to a variable using the Clojure syntax:
 
 ```clojure
-(GET "/:foo" {{foo "foo"} :params}
+(GET "/:foo" {{foo :foo} :params}
   (str "Foo = " foo))
 ```
 
