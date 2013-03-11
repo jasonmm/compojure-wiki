@@ -50,7 +50,7 @@ The second argument to the macro provides a way of retrieving information from t
 In other words, the above syntax binds the symbol id to the “id” parameter in the request map, which in this case was populated by the Clout route string. We could also use a standard Clojure destructuring form:
 
 ```clojure
- {{id "id"} :params}
+ {{id :id} :params}
 ```
 
 This provides more control, but is less succinct than the vector syntax.
