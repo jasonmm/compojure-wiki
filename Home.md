@@ -4,7 +4,7 @@ It uses a concise DSL to generate [[Ring|https://github.com/ring-clojure/ring/wi
 
 * [[Getting Started]]
 * [[Routes In Detail]]
-* [[Destructuring Syntax]]
+* [[Destructuring Syntax]] **Very Important******
 * [[Nesting Routes]]
 * [[API Documentation|http://weavejester.github.com/compojure]]
 * [[PaaS Platforms]]
