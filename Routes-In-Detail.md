@@ -67,7 +67,7 @@ The return value is treated intelligently. In this case a string is returned, so
 
 ```clojure
 {:status 200
- :headers {"Content-Type" "text/html"}
+ :headers {"Content-Type" "text/html; charset=utf-8"}
  :body "<h1>Hello user 1</h1>"}
 ```
 
