@@ -5,6 +5,8 @@ Compojure supports two sorts of destructuring:
       * query string (and form) parameters, and
       * portions of the url path;
 
+**\* Note that a REPL demonstration is provided below for clarity.**
+
 ## Regular Clojure Destructuring
 
 If you supply a map or symbol, Clojure's destructuring syntax will be used on the Ring request map. For example, here is how you'd bind a specific parameter to a variable using the Clojure syntax:
@@ -71,4 +73,86 @@ You can also bind a Clojure destructuring map to the `:as` keyword:
 x -> "foo"
 y -> "bar"
 u -> "/foobar"}
+```
+
+## REPL Demonstration
+
+Route call responses are shown after comment tags ;;-> 
+
+```clojure
+user> (use 'compojure.core)
+nil
+user> (require '[compojure.handler :as handler])
+nil
+user> (require '[compojure.route :as route])
+nil
+
+user> (def my-request
+        {:request-method :get
+         :uri "/my-uri"
+         :headers []
+         :params {:x "foo" :y "bar" :z "baz" :w "qux"}})
+#'user/my-request
+
+user> (defroutes my-3-parameter-route
+        (GET "/:my" [x y z]
+          (str "x -> " x "; "
+               "y -> " y "; "
+               "z -> " z)))
+#'user/my-3-parameter-route
+
+user> (my-3-parameter-route my-request)
+
+;;-> {:status 200
+;;->  :headers {"Content-Type" "text/html; charset=utf-8"},
+;;->  :body "x -> foo; y -> bar; z -> baz"}
+
+user> (defroutes my-2-parameter-and-remainder-route
+        (GET "/:my" [x y & z] ; & binds remainder of request map to z
+          (str "x -> " x "; "
+               "y -> " y "; "
+               "z -> " z)))
+#'user/my-2-parameter-and-remainder-route
+
+user> (my-2-parameter-and-remainder-route my-request)
+
+;;-> {:status 200,
+;;->  :headers {"Content-Type" "text/html; charset=utf-8"},
+;;->  :body "x -> foo; y -> bar; z -> {:my \\"my-uri\\", :z \\"baz\\", :w \\"qux\\"}"} 
+
+user> (defroutes my-remainder-symbol-route
+        (GET "/:my" [x y :as r] ; :as keyword assigns entire request map to symbol
+          (str "x -> " x "; "
+               "y -> " y "; "
+               "r -> " r)))
+#'user/my-remainder-symbol-route
+
+user> (my-remainder-symbol-route my-request)
+
+;;-> {:status 200,
+;;->:headers {"Content-Type" "text/html; charset=utf-8"},
+;;->:body "x -> foo; y -> bar;
+;;->       r -> {:route-params {:my \\"my-uri\\"},
+;;->                            :request-method :get,
+;;->                            :uri \\"/my-uri\\",
+;;->                            :headers [],
+;;->                            :params {:my \\"my-uri\\",
+;;->                                     :z \\"baz\\",
+;;->                                     :y \\"bar\\",
+;;->                                     :x \\"foo\\",
+;;->                                     :w \\"qux\\"}}"}
+
+user> (defroutes my-destructuring-map-route
+        (GET "/:my" [x y :as {u :uri}] ; :as keyword and destructuring map
+                                       ; to bind :uri value to u
+          (str "x -> " x "; "
+               "y -> " y "; "
+               "u -> " u)))
+#'user/my-destructuring-map-route
+
+user> (my-destructuring-map-route my-request)
+
+;;-> {:status 200,
+;;->  :headers {"Content-Type" "text/html; charset=utf-8"},
+;;->  :body "x -> foo; y -> bar; u -> /my-uri"}
 ```
