@@ -15,7 +15,7 @@ Let’s unravel the syntax. The first symbol is:
 
 This is one of several route macros Compojure provides. This macro tests the HTTP request method, and if the method is not "GET", the function returns nil.
 
-Other route macros you can use are `POST`, `PUT`, `DELETE` and `HEAD`. If you want to match any HTTP method, use the `ANY` macro.
+Other route macros you can use are `POST`, `PUT`, `DELETE`, `OPTIONS`, `PATCH` and `HEAD`. If you want to match any HTTP method, use the `ANY` macro.
 
 ### Matching the URI
 
