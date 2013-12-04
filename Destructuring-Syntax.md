@@ -1,9 +1,7 @@
 Compojure supports two sorts of destructuring:
 
- 1. The Clojure kind, as one might use in the `let` [special form](http://clojure.org/special_forms), and
- 2. a Compojure-specific kind designed for parsing from the request map:
-      * query string (and form) parameters, and
-      * portions of the url path;
+ 1. The usual Clojure kind, as one might use in the `let` [special form](http://clojure.org/special_forms)
+ 2. A Compojure-specific kind designed for parsing parameters from the request map.
 
 ## Regular Clojure Destructuring
 
