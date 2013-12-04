@@ -5,8 +5,6 @@ Compojure supports two sorts of destructuring:
       * query string (and form) parameters, and
       * portions of the url path;
 
-**\* Note that a REPL demonstration is provided below for clarity.**
-
 ## Regular Clojure Destructuring
 
 If you supply a map or symbol, Clojure's destructuring syntax will be used on the Ring request map. For example, here is how you'd bind a specific parameter to a variable using the Clojure syntax:
