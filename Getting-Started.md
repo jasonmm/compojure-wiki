@@ -12,7 +12,7 @@ You can now change into the project directory, and start a development server us
 
 ```bash
 cd hello-world
-lein ring server
+lein ring server-headless
 ```
 
 The dev server will find a free port and open a browser window for you. If you make a change to one of the source files, it will automatically reload it for you.
