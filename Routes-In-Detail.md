@@ -25,7 +25,7 @@ Next is:
 "/user/:id"
 ```
 
-This is a string that uses the routing syntax defined by Clout. It has a lot in common with the routing syntax used in Ruby on Rails and Sinatra.
+This is a string that uses the routing syntax defined by [Clout](https://github.com/weavejester/clout). It has a lot in common with the routing syntax used in Ruby on Rails and Sinatra.
 
 It matches against the URI of the request. The :id part will match any sub-path up to the next "/" or ".", and puts the results in the "id" parameter.
 
@@ -47,7 +47,7 @@ After the HTTP method and the URI have been matched:
 
 The second argument to the macro provides a way of retrieving information from the request map. This can either be a vector of parameters you want, or a full Clojure destructuring form.
 
-In other words, the above syntax binds the symbol id to the “id” parameter in the request map, which in this case was populated by the Clout route string. We could also use a standard Clojure destructuring form:
+In other words, the above syntax binds the symbol id to the “id” parameter in the request map, which in this case was populated by the [Clout](https://github.com/weavejester/clout) route string. We could also use a standard Clojure destructuring form:
 
 ```clojure
  {{id :id} :params}
