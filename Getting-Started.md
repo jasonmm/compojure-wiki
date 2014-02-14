@@ -15,4 +15,4 @@ cd hello-world
 lein ring server-headless
 ```
 
-The dev server will find a free port and open a browser window for you. If you make a change to one of the source files, it will automatically reload it for you.
+The dev server will start up on port 5000. If you make a change to one of the source files, it will automatically reload it for you.
