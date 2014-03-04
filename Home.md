@@ -1,6 +1,4 @@
-Compojure is a small web framework for the Clojure programming language.
-
-It uses a concise DSL to generate [[Ring|https://github.com/ring-clojure/ring/wiki]] handler functions.
+Compojure is a routing library for [[Ring|https://github.com/ring-clojure/ring]]. If you're not familiar with Ring, this documentation may be difficult to understand.
 
 * [[Getting Started]]
 * [[Routes In Detail]]
