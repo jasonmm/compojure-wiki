@@ -5,7 +5,7 @@ Routes in Compojure look something like this:
   (str "<h1>Hello user " id "</h1>"))
 ```
 
-Routes return Ring handler functions. Despite their syntax, there’s nothing magical about them. They just provide a concise way of defining functions to handle HTTP requests.
+Routes return [Ring handler](https://github.com/ring-clojure/ring/wiki/Concepts#handlers) functions. Despite their syntax, there’s nothing magical about them. They just provide a concise way of defining functions to handle HTTP requests.
 
 ### Matching the HTTP method
 
