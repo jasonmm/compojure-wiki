@@ -47,20 +47,30 @@ After the HTTP method and the URI have been matched:
 
 The second argument to the macro provides a way of retrieving information from the request map. This can either be a vector of parameters you want, or a full Clojure destructuring form.
 
-In other words, the above syntax binds the symbol id to the “id” parameter in the request map, which in this case was populated by the [Clout](https://github.com/weavejester/clout) route string. We could also use a standard Clojure destructuring form:
+In other words, the above syntax binds the symbol `id` to the “id” parameter in the request map, which in this case was populated by the [Clout](https://github.com/weavejester/clout) route string. We could also use a standard Clojure destructuring form:
 
 ```clojure
- {{id :id} :params}
+{{id :id} :params}
 ```
 
 This provides more control, but is less succinct than the vector syntax.
+
+Note that you can always capture the request map like so:
+
+```clojure
+(GET "/" request (str request))
+```
+
+This will return your request map as string as response.
+
+See [[Destructing Syntax part|Destructuring-Syntax]] for detailed description.
 
 ### Returning a response
 
 Once the HTTP request has been matched and destructured, the rest of the route is encased in an implicit do block, just like normal functions:
 
 ```clojure
-(str "<h1>Hello user " id "</h1>"))
+(str "<h1>Hello user " id "</h1>")
 ```
 
 The return value is treated intelligently. In this case a string is returned, so it’s turned into a standard response:
