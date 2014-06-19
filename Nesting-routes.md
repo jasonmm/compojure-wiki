@@ -31,3 +31,4 @@ However, if your inner routes are defined separately, you need to manually pass 
     (inner-routes user-id)))
 ```
 
+This is because parameters are bound with a lexical, rather than dynamic scope.
