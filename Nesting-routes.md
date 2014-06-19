@@ -11,7 +11,7 @@ Route parameters may be added to the context, just like a normal route:
 
 ```clojure
 (defroutes user-routes
-  (context "/user/:user-id [user-id]
+  (context "/user/:user-id" [user-id]
     (GET "/profile" [] ...)
     (GET "/posts" [] ...)))
 ```
@@ -27,7 +27,7 @@ However, if your inner routes are defined separately, you need to manually pass 
    (GET "/posts" [] ...)))
   
 (defroutes user-routes
-  (context "/user/:user-id [user-id]
+  (context "/user/:user-id" [user-id]
     (inner-routes user-id)))
 ```
 
