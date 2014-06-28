@@ -3,6 +3,7 @@ The `context` macro provides a way of giving a set of routes a common prefix:
 ```clojure
 (defroutes user-routes
   (context "/user/current" []
+    (GET "/" [] ...) ;the route that exits at "/user/current"
     (GET "/profile" [] ...)
     (GET "/posts" [] ...)))
 ```
