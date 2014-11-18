@@ -85,20 +85,19 @@ The [compojure.response/render](https://github.com/weavejester/compojure/blob/ma
 
 ### Combining routes
 
-```clojure
-(defroutes my-routes
-  (GET "/" request (handle-get request))
-  (POST "/" request (handle-post request))
-  (handle-404)
-```
-
-The `defroutes` macro provides an easy way to combine multiple routes together into one ring handler function. Each route will be tried in turn until one returns a non-nil value.
-
-`defroutes` expands into a `def` and a call to `routes`. The following code is equivalent:
+Compojure uses the [compojure.core/routes](https://weavejester.github.io/compojure/compojure.core.html#var-routes) function to combine routes. Each route is attempted in order, until a route is found that returns a non-nil response to the request.
 
 ```clojure
 (def my-routes
-  (routes (GET "/" request (handle-get request))
-          (POST "/" request (handle-post request))
-          (handle-404)))
+  (routes
+   (GET "/foo" [] "Hello Foo")
+   (GET "/bar" [] "Hello Bar")))
+```
+
+Because this is a common pattern, Compojure also provides a `defroutes` macro:
+
+```clojure
+(defroutes my-routes
+  (GET "/foo" [] "Hello Foo")
+  (GET "/bar" [] "Hello Bar"))
 ```
