@@ -81,7 +81,7 @@ The return value is treated intelligently. In this case a string is returned, so
  :body "<h1>Hello user 1</h1>"}
 ```
 
-The [compojure.response/render](https://github.com/weavejester/compojure/blob/master/src/compojure/response.clj) multimethod deals with turning a response of an arbitrary type (String, map, File, etc) into a suitable response. It can be overridden to provide custom rendering of your own types.
+The [compojure.response/Renderable](https://weavejester.github.io/compojure/compojure.response.html) protocol deals with turning a response of an arbitrary type (String, map, File, etc) into a suitable response. It can be overridden to provide custom rendering of your own types.
 
 ### Combining routes
 
