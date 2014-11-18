@@ -82,3 +82,23 @@ The return value is treated intelligently. In this case a string is returned, so
 ```
 
 The [compojure.response/render](https://github.com/weavejester/compojure/blob/master/src/compojure/response.clj) multimethod deals with turning a response of an arbitrary type (String, map, File, etc) into a suitable response. It can be overridden to provide custom rendering of your own types.
+
+### Combining routes
+
+```clojure
+(defroutes my-routes
+  (GET "/" request (handle-get request))
+  (POST "/" request (handle-post request))
+  (handle-404)
+```
+
+The `defroutes` macro provides an easy way to combine multiple routes together into one ring handler function. Each route will be tried in turn until one returns a non-nil value.
+
+`defroutes` expands into a `def` and a call to `routes`. The following code is equivalent:
+
+```clojure
+(def my-routes
+  (routes (GET "/" request (handle-get request))
+          (POST "/" request (handle-post request))
+          (handle-404)))
+```
