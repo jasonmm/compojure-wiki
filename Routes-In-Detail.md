@@ -35,6 +35,12 @@ If we wanted to be more specific, we could also define a custom regular expressi
 ["/user/:id", :id #"[0-9]+"]
 ```
 
+Or use inline regular expressions surrounded by braces (introduced in Compojure 1.3.0):
+
+```clojure
+"/user/:id{[0-9]+}"
+```
+
 Like the HTTP method, if the URI does not match the defined path, the route function will return nil.
 
 ### Destructuring the request
