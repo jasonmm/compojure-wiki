@@ -12,5 +12,3 @@ Compojure is a routing library for [[Ring|https://github.com/ring-clojure/ring]]
 * [[Interactive Development With Ring|https://github.com/ring-clojure/ring/wiki/Interactive-Development]]
 * [[Emacs Indentation]]
 * [[Common Problems]]
-
-Continue to [[Getting Started]]...
