@@ -78,7 +78,7 @@ y -> "bar"
 u -> "/foobar"}
 ```
 
-As of Compojure 1.4.0, you can also supply coercion functions for parameters:
+As of Compojure 1.4.0, you can also supply coercion functions for parameters using the `:<<` keyword:
 
 ```clojure
 [x :<< as-int]
