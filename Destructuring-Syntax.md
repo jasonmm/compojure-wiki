@@ -57,6 +57,8 @@ z -> {:z "baz", :w "qux"}
 
 This behaviour is analogous to the "&" as it is used in normal Clojure bindings. The difference is that instead of getting the unbound remainder of a list, we get the unbound remainder of a map.
 
+#### :as
+
 If you want to access other parts of the request map, you can use the `:as` keyword to assign the entire request map to a symbol:
 
 ```clojure
@@ -77,6 +79,8 @@ x -> "foo"
 y -> "bar"
 u -> "/foobar"}
 ```
+
+#### :<<
 
 As of Compojure 1.4.0, you can also supply coercion functions for parameters using the `:<<` keyword:
 
