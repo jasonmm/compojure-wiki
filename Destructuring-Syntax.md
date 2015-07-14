@@ -57,7 +57,7 @@ z -> {:z "baz", :w "qux"}
 
 This behaviour is analogous to the "&" as it is used in normal Clojure bindings. The difference is that instead of getting the unbound remainder of a list, we get the unbound remainder of a map.
 
-Finally, you can use the `:as` keyword to assign the entire request map to a symbol:
+If you want to access other parts of the request map, you can use the `:as` keyword to assign the entire request map to a symbol:
 
 ```clojure
 [x y :as r]
@@ -77,3 +77,13 @@ x -> "foo"
 y -> "bar"
 u -> "/foobar"}
 ```
+
+As of Compojure 1.4.0, you can also supply coercion functions for parameters:
+
+```clojure
+[x :<< as-int]
+```
+
+In the above case, the parameter `x` will be passed through the `as-int` function before being assigned. If any coercion function returns `nil`, then the coercion is considered to have failed, and the route will not match.
+
+The [compojure.coercions](https://weavejester.github.io/compojure/compojure.coercions.html) namespace contains two built-in coercions, `as-int` and `as-uuid`.
