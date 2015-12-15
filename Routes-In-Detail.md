@@ -69,7 +69,7 @@ Note that you can always capture the request map like so:
 
 This will return your request map as string as response.
 
-See [[Destructing Syntax part|Destructuring-Syntax]] for detailed description.
+See [[Destructuring Syntax part|Destructuring-Syntax]] for detailed description.
 
 ### Returning a response
 
