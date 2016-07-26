@@ -26,6 +26,11 @@ Since regular destructuring can be quite verbose, Compojure offers a more specia
 ```clojure
 (GET "/:foo" [foo]
   (str "Foo = " foo))
+; curl get /bar would be "Foo = bar"
+
+(GET "/:foo" [foo id]                    ; You can always destructure and use query parameter in the same way
+  (str "Foo = " foo " / Id = " id))   
+; curl get /bar?id=33 would be "Foo = bar / Id = 33"
 ```
 
 Compojure's parameter destructuring syntax has three pieces of functionality. The first is to bind parameters directly to symbols of the same name. For instance, assume we have the following request map:
