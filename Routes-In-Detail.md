@@ -5,7 +5,29 @@ Routes in Compojure look something like this:
   (str "<h1>Hello user " id "</h1>"))
 ```
 
+Routes are passed as arguments to the `(defroutes)` call.  Adding to the "hello-world" example we created on the last page, the complete `handler.clj` would now be:
+
+```clojure
+(ns hello-world.handler
+  (:require [compojure.core :refer :all]
+            [compojure.route :as route]
+            [ring.middleware.defaults :refer [wrap-defaults site-defaults]]))
+
+(defroutes app-routes
+  (GET "/" [] "Hello World")
+  
+  ;; Here's our new route.
+  (GET "/user/:id" [id]
+    (str "<h1>Hello user " id "</h1>"))
+
+  (route/not-found "Not Found"))
+
+(def app
+  (wrap-defaults app-routes site-defaults))
+```
+
 Routes return [Ring handler](https://github.com/ring-clojure/ring/wiki/Concepts#handlers) functions. Despite their syntax, there’s nothing magical about them. They just provide a concise way of defining functions to handle HTTP requests.
+
 
 ### Matching the HTTP method
 
@@ -19,7 +41,7 @@ Other route macros you can use are `POST`, `PUT`, `DELETE`, `OPTIONS`, `PATCH` a
 
 ### Matching the URI
 
-Next is:
+The first argument to the macro is the URI of the route:
 
 ```clojure
 "/user/:id"
@@ -27,7 +49,7 @@ Next is:
 
 This is a string that uses the routing syntax defined by [Clout](https://github.com/weavejester/clout). It has a lot in common with the routing syntax used in Ruby on Rails and Sinatra.
 
-It matches against the URI of the request. The :id part will match any sub-path up to the next "/" or ".", and puts the results in the "id" parameter.
+It matches against the URI of the request. The `:id` part will match any sub-path up to the next "/" or ".", and puts the results in the "id" parameter.
 
 If we wanted to be more specific, we could also define a custom regular expression for this parameter:
 
@@ -45,15 +67,13 @@ Like the HTTP method, if the URI does not match the defined path, the route func
 
 ### Destructuring the request
 
-After the HTTP method and the URI have been matched:
+After the HTTP method and the URI have been matched the second argument to the macro provides a way of retrieving information from the request map. This can either be a vector of parameters you want, or a full Clojure destructuring form.
 
 ```clojure
 [id]
 ```
 
-The second argument to the macro provides a way of retrieving information from the request map. This can either be a vector of parameters you want, or a full Clojure destructuring form.
-
-In other words, the above syntax binds the symbol `id` to the “id” parameter in the request map, which in this case was populated by the [Clout](https://github.com/weavejester/clout) route string. We could also use a standard Clojure destructuring form:
+In other words, the above syntax binds the symbol `id` to the “id” parameter in the request map, which in this case was populated by the [Clout](https://github.com/weavejester/clout) route string (the `:id` in the URI from the previous section). We could also use a standard Clojure destructuring form:
 
 ```clojure
 {{id :id} :params}
@@ -73,7 +93,7 @@ See [[Destructuring Syntax part|Destructuring-Syntax]] for detailed description.
 
 ### Returning a response
 
-Once the HTTP request has been matched and destructured, the rest of the route is encased in an implicit do block, just like normal functions:
+Once the HTTP request has been matched and destructured, the rest of the route is encased in an implicit do block, so that it behaves like normal functions:
 
 ```clojure
 (str "<h1>Hello user " id "</h1>")
