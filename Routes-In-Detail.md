@@ -5,7 +5,29 @@ Routes in Compojure look something like this:
   (str "<h1>Hello user " id "</h1>"))
 ```
 
+Routes are passed as arguments to the `(defroutes)` call.  Adding to the "hello-world" example we created on the last page, the complete `handler.clj` would now be:
+
+```clojure
+(ns hello-world.handler
+  (:require [compojure.core :refer :all]
+            [compojure.route :as route]
+            [ring.middleware.defaults :refer [wrap-defaults site-defaults]]))
+
+(defroutes app-routes
+  (GET "/" [] "Hello World")
+  
+  ;; Here's our new route.
+  (GET "/user/:id" [id]
+    (str "<h1>Hello user " id "</h1>"))
+
+  (route/not-found "Not Found"))
+
+(def app
+  (wrap-defaults app-routes site-defaults))
+```
+
 Routes return [Ring handler](https://github.com/ring-clojure/ring/wiki/Concepts#handlers) functions. Despite their syntax, there’s nothing magical about them. They just provide a concise way of defining functions to handle HTTP requests.
+
 
 ### Matching the HTTP method
 
