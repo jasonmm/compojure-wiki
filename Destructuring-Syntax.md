@@ -3,6 +3,18 @@ Compojure supports two sorts of destructuring for parameters passed in on the re
  1. The Clojure kind, as one might use in the `let` [special form](http://clojure.org/special_forms), and
  2. A Compojure-specific kind designed for parsing parameters from the request map.
 
+
+## Prerequisite Knowledge
+
+This documents assumes you:
+
+1. have read the previous wiki pages.
+1. understand Clojure destructuring.
+1. are familiar with [Ring concepts](https://github.com/ring-clojure/ring/wiki/Concepts), especially the [request map](https://github.com/ring-clojure/ring/wiki/Concepts#requests).
+
+Note, all the code snippets on this page belongs inside a `(defroutes)` call.
+
+
 ## Regular Clojure Destructuring
 
 Passing one symbol causes the entire request map to be bound to that variable.  For example, in this code snippet:
