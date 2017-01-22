@@ -73,9 +73,7 @@ After the HTTP method and the URI have been matched the second argument to the m
 [id]
 ```
 
-The second argument to the macro provides a way of retrieving information from the request map. This can either be a vector of parameters you want, or a full Clojure destructuring form.
-
-In other words, the above syntax binds the symbol `id` to the “id” parameter in the request map, which in this case was populated by the [Clout](https://github.com/weavejester/clout) route string. We could also use a standard Clojure destructuring form:
+In other words, the above syntax binds the symbol `id` to the “id” parameter in the request map, which in this case was populated by the [Clout](https://github.com/weavejester/clout) route string (the `:id` in the URI from the previous section). We could also use a standard Clojure destructuring form:
 
 ```clojure
 {{id :id} :params}
