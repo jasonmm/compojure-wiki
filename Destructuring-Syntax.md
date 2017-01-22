@@ -1,16 +1,18 @@
-Compojure supports two sorts of destructuring:
+Compojure supports two sorts of destructuring for parameters passed in on the request:
 
  1. The Clojure kind, as one might use in the `let` [special form](http://clojure.org/special_forms), and
  2. A Compojure-specific kind designed for parsing parameters from the request map.
 
 ## Regular Clojure Destructuring
 
-The most general case is to capture the request map directly:
+Passing one symbol causes the entire request map to be bound to that variable.  For example, in this code snippet:
 
 ```clojure
 (GET "/" request
   (str request))
 ```
+
+the second argument to `GET` is a single variable name.  This variable will contain the entire request map and can be used inside the code that creates the response.
 
 If you supply a map or symbol, Clojure's destructuring syntax will be used on the Ring request map. For example, here is how you'd bind a specific parameter to a variable using the Clojure syntax:
 
@@ -18,6 +20,7 @@ If you supply a map or symbol, Clojure's destructuring syntax will be used on th
 (GET "/:foo" {{foo :foo} :params}
   (str "Foo = " foo))
 ```
+
 
 ## Compojure-specific Destructuring
 
