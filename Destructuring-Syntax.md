@@ -1,6 +1,6 @@
 Compojure supports two sorts of destructuring for parameters passed in on the request:
 
- 1. The Clojure kind, as one might use in the `let` [special form](http://clojure.org/special_forms), and
+ 1. The [Clojure kind](https://clojure.org/reference/special_forms#binding-forms), as one might use in a `let` or with function arguments.
  2. A Compojure-specific kind designed for parsing parameters from the request map.
 
 
