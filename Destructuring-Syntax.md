@@ -54,7 +54,7 @@ Query parameters are handled in the same way. Building on our example from an ea
 
 Some cURL examples demonstrating usage of the above route:
 
-```bash
+```
 $ curl http://localhost:3000/user/jack?greeting=hello
 <h1>hello user jack</h1>
 
@@ -92,7 +92,7 @@ To bind a map of all unassigned parameters, you can use the "&" symbol, followed
 
 Testing the above route with cURL:
 
-```bash
+```
 $ curl "http://localhost:3000/foobar?x=foo&y=bar&z=baz&w=qux" 
 foo, bar, {:z "baz", :w "qux"}
 ```
@@ -133,7 +133,7 @@ You can also bind a Clojure destructuring map to the `:as` keyword. This will al
 
 Again, using cURL we can see how the variables get assigned:
 
-```bash
+```
 $ curl "http://localhost:3000/foobar?x=foo&y=bar&z=baz&w=qux"
 'x' is "foo"
 'y' is "bar"
