@@ -12,7 +12,7 @@ This documents assumes you:
 1. understand Clojure destructuring.
 1. are familiar with [Ring concepts](https://github.com/ring-clojure/ring/wiki/Concepts), especially the [request map](https://github.com/ring-clojure/ring/wiki/Concepts#requests).
 
-Note, all the code snippets on this page belongs inside a `(defroutes)` call.
+Note, all the code snippets on this page belong inside a `(defroutes)` call.
 
 
 ## Regular Clojure Destructuring
@@ -45,7 +45,7 @@ Since regular destructuring can be quite verbose, Compojure offers a more specia
 
 Notice that the variable name inside the vector (`[id]`) matches the name of the parameter placeholder (`:id`).
 
-Query parameters are handled in the same way. Building on our example from an earlier wiki page we can modify our `user/:id` route to accept a query stirng parameter as well.
+Query parameters are handled in the same way. Building on our example from an earlier wiki page we can modify our `/user/:id` route to accept a query string parameter as well.
 
 ```clojure
 (GET "/user/:id" [id greeting]
@@ -99,7 +99,7 @@ foo, bar, {:z "baz", :w "qux"}
 
 we can see that the variable `x` has been assigned the value of "foo", `y` has been assigned the value of "bar" and `z` is a map of the remaining parameters.
 
-This behaviour is analogous to the "&" as it is used in normal Clojure bindings. The difference is that instead of getting the unbound remainder of a list, we get the unbound remainder of a map.
+This behaviour is analogous to the "&" as it is used in normal Clojure bindings. The difference is that instead of getting the unbound remainder as a list, we get the unbound remainder as a map.
 
 #### Request binding
 
