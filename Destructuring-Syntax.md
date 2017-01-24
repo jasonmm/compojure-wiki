@@ -65,7 +65,7 @@ $ curl http://localhost:3000/user/jack
 <h1> user jack</h1>
 ```
 
-Compojure's parameter destructuring syntax has three pieces of functionality. The first is to bind parameters directly to symbols of the same name. For instance, assume we have the following request map:
+Compojure's parameter destructuring syntax has three pieces of functionality. The first is to bind parameters directly to symbols of the same name. For instance, assume we have the following request map (we will continue to use this request map throughout the rest of this page):
 
 ```clojure
 {:request-method :get
