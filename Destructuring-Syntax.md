@@ -3,6 +3,7 @@ Compojure supports two sorts of destructuring for parameters passed in on the re
  1. The [Clojure kind](https://clojure.org/reference/special_forms#binding-forms), as one might use in a `let` or with function arguments.
  2. A Compojure-specific kind designed for parsing parameters from the request map.
 
+This page explains Compojure destructuring, but there is a [Quick Reference at the bottom](#quick-reference) as well.
 
 ## Prerequisite Knowledge
 
@@ -152,3 +153,64 @@ As of Compojure 1.4.0, you can also supply coercion functions for parameters usi
 In the above case, the parameter `x` will be passed through the `as-int` function before being assigned. If any coercion function returns `nil`, then the coercion is considered to have failed, and the route will not match.
 
 The [compojure.coercions](https://weavejester.github.io/compojure/compojure.coercions.html) namespace contains two built-in coercions, `as-int` and `as-uuid`.
+
+# Quick Reference
+
+#### Regular Clojure Destructuring
+
+* Get the `request` map directly:
+
+```clojure
+(GET "/" request
+  (str request))
+```
+
+* Bind a specific parameter:
+
+```clojure
+(GET "/user/:id" {{userId :id} :params}
+  (str "The user ID is " userId))
+```
+
+#### Compojure Specific Destructuring
+
+```clojure
+(GET "/user/:id" [id]
+  (str "The user ID is " id))
+```
+
+* Binding multiple parameters:
+
+```clojure
+(GET "/user/:id" [id greeting]
+  (str "<h1>" greeting " user " id "</h1>"))
+```
+
+```clojure
+(GET "/foobar" [x y z]
+  (str x ", " y ", " z))
+```
+
+* Mapping unassigned parameters:
+
+```clojure
+(GET "/foobar" [x y & z]
+  (str x ", " y ", " z))
+```
+
+* Binding parameters and the entire request map:
+
+```clojure
+(GET "/foobar" [x y :as r]
+  (str x ", " y ", " r))
+```
+
+* Binding specific keys from the request map:
+
+```clojure
+(GET "/foobar" [x y :as {u :uri rm :request-method}]
+       (str "'x' is \"" x "\"\n"
+            "'y' is \"" y "\"\n"
+            "The request URI was \"" u "\"\n"
+            "The request method was \"" rm "\""))
+```
