@@ -165,6 +165,9 @@ The [compojure.coercions](https://weavejester.github.io/compojure/compojure.coer
 ```clojure
 (GET "/" request
   (str request))
+
+; Output:
+; {:server-port 3000, :form-params {}, :compojure/route [:get "/"], ...}
 ```
 
 * Bind a specific parameter:
@@ -172,6 +175,9 @@ The [compojure.coercions](https://weavejester.github.io/compojure/compojure.coer
 ```clojure
 (GET "/user/:id" {{userId :id} :params}
   (str "The user ID is " userId))
+
+; Output for "GET /user/jack"
+; The user ID is jack
 ```
 
 #### Compojure Specific Destructuring
@@ -179,6 +185,9 @@ The [compojure.coercions](https://weavejester.github.io/compojure/compojure.coer
 ```clojure
 (GET "/user/:id" [id]
   (str "The user ID is " id))
+
+; Output for "GET /user/jack"
+; The user ID is jack
 ```
 
 * Binding multiple parameters:
@@ -186,11 +195,17 @@ The [compojure.coercions](https://weavejester.github.io/compojure/compojure.coer
 ```clojure
 (GET "/user/:id" [id greeting]
   (str "<h1>" greeting " user " id "</h1>"))
+
+; Output for "GET /user/jack?greeting=farewell"
+; <h1>farewell user jack</h2>
 ```
 
 ```clojure
 (GET "/foobar" [x y z]
   (str x ", " y ", " z))
+
+; Output for "GET /foobar?x=foo&y=bar&z=baz"
+; foo, bar, baz
 ```
 
 * Mapping unassigned parameters:
@@ -198,6 +213,9 @@ The [compojure.coercions](https://weavejester.github.io/compojure/compojure.coer
 ```clojure
 (GET "/foobar" [x y & z]
   (str x ", " y ", " z))
+
+; Output for "GET /foobar?x=foo&y=bar&z=baz&w=qux"
+; foo, bar, {:z "baz", :w "qux"}
 ```
 
 * Binding parameters and the entire request map:
@@ -205,6 +223,9 @@ The [compojure.coercions](https://weavejester.github.io/compojure/compojure.coer
 ```clojure
 (GET "/foobar" [x y :as r]
   (str x ", " y ", " r))
+
+; Output for "GET /foobar?x=foo&y=bar&z=baz"
+; foo, bar, {:server-port 3000, ...}
 ```
 
 * Binding specific keys from the request map:
@@ -215,4 +236,7 @@ The [compojure.coercions](https://weavejester.github.io/compojure/compojure.coer
             "'y' is \"" y "\"\n"
             "The request URI was \"" u "\"\n"
             "The request method was \"" rm "\""))
+
+; Output for "GET /foobar?x=foo&y=bar"
+; 'x' is "foo" 'y' is "bar" The request URI was "/foobar" The request method was ":get"
 ```
