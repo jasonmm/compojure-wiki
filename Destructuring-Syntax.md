@@ -10,13 +10,15 @@ This page explains Compojure destructuring, but there is a [Quick Reference at t
 This documents assumes you:
 
 1. have read the previous wiki pages.
-1. understand Clojure destructuring.
+1. understand [Clojure destructuring](https://clojure.org/reference/special_forms#binding-forms).
 1. are familiar with [Ring concepts](https://github.com/ring-clojure/ring/wiki/Concepts), especially the [request map](https://github.com/ring-clojure/ring/wiki/Concepts#requests).
 
 Note, all the code snippets on this page belong inside a `(defroutes)` call.
 
 
 ## Regular Clojure Destructuring
+
+[Clojure Documentation](https://clojure.org/reference/special_forms#binding-forms)
 
 Passing one symbol causes the entire request map to be bound to that variable.  For example, in this code snippet:
 
@@ -94,7 +96,7 @@ To bind a map of all unassigned parameters, you can use the "&" symbol, followed
 Testing the above route with cURL:
 
 ```
-$ curl "http://localhost:3000/foobar?x=foo&y=bar&z=baz&w=qux" 
+$ curl "http://localhost:3000/foobar?x=foo&y=bar&z=baz&w=qux"
 foo, bar, {:z "baz", :w "qux"}
 ```
 
